@@ -32,6 +32,9 @@ public class TwoCharackterController : MonoBehaviour
     public float LadderSpeed;
     public float LadderSpeedPy;
 
+    [HideInInspector]
+    public bool Right;
+
     bool isJumping;
 
     float startX;
@@ -83,17 +86,16 @@ public class TwoCharackterController : MonoBehaviour
         else
         {
             anim.SetBool("isClimbing", true);
-            ClimbUpdate();
+            if (Right)
+            {
+                ClimbUpdate();
+            }
+            else
+            {
+                LeftClimbUpdate();
+            }
         }
 
-        if (IsGroundedCheck())
-        {
-            anim.SetBool("isJumping", false);
-        }
-        else
-        {
-            anim.SetBool("isJumping", true);
-        }
 
 
     }
@@ -118,7 +120,6 @@ public class TwoCharackterController : MonoBehaviour
         {
             Debug.Log("Jump Tuþuna basýldý");
             isJumping = true;
-            anim.SetBool("isJumping", true);
             JumpTimeCounter = JumpTime;
             Jump();
         }
@@ -145,6 +146,13 @@ public class TwoCharackterController : MonoBehaviour
         MySpeedY = Input.GetAxis("Horizontal");
         rb.useGravity = false;
     }
+
+    public void LeftClimbUpdate()
+    {
+        MySpeedY = -Input.GetAxis("Horizontal");
+        rb.useGravity = false;
+    }
+
     public void ClimbFixedUpdate()
     {
         rb.velocity = new Vector2(rb.velocity.x, MySpeedY * Speed * LadderSpeedPy * Time.deltaTime);
