@@ -9,6 +9,8 @@ TagManager:
   - C
   - Correct
   - Wrong
+  - Fin
+  - Paper
   layers:
   - Default
   - TransparentFX

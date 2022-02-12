@@ -5,6 +5,10 @@ using UnityEngine;
 public class MouseLook : MonoBehaviour
 {
 
+    public Animator testAnim;
+
+    public GameMan gamman;
+
     public Camera cam;
 
     [SerializeField] int zoom = 20;
@@ -87,6 +91,16 @@ public class MouseLook : MonoBehaviour
         if (hit)
         {
             GameObject hitObject = hitInfo.transform.gameObject;
+
+            if (hitObject.CompareTag("Paper") || hitObject.CompareTag("Correct") || hitObject.CompareTag("Wrong") || hitObject.CompareTag("Fin"))
+            {
+                testAnim.SetBool("Look", true);
+            }
+            else
+            {
+                testAnim.SetBool("Look", false);
+            }
+
             if (Input.GetMouseButtonDown(0) && hitObject.CompareTag("Correct"))
             {
                 hitObject.GetComponentInParent<QsScript>().CorrectAnswer();
@@ -94,6 +108,10 @@ public class MouseLook : MonoBehaviour
             else if(Input.GetMouseButtonDown(0) && hitObject.CompareTag("Wrong"))
             {              
                 hitObject.GetComponentInParent<QsScript>().WrongAnswer();
+            }
+            else if(Input.GetMouseButtonDown(0) && hitObject.CompareTag("Fin") && gamman.AbleToWin)
+            {
+                Debug.Log("Winned");
             }
         }
     }

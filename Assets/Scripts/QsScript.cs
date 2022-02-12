@@ -11,14 +11,14 @@ public class QsScript : MonoBehaviour
     public void CorrectAnswer()
     {
         
-       GameManager.TrueQs[QsNumber] = true;
+       GameMan.TrueQs[QsNumber] = true;
 
     }
 
     public void WrongAnswer()
     {
 
-        GameManager.TrueQs[QsNumber] = false;
+        GameMan.TrueQs[QsNumber] = false;
 
     }
 

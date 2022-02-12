@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class TwoCharackterController : MonoBehaviour
 {
+
+    public bool Climbing = false;
+
     [HideInInspector]
     public float MySpeedX;
+    [HideInInspector]
+    public float MySpeedY;
 
     public float Speed;
     public float JumpSpeed;
@@ -26,7 +31,7 @@ public class TwoCharackterController : MonoBehaviour
 
     void Start()
     {
-        
+        Climbing = false;
     }
 
 
@@ -35,6 +40,35 @@ public class TwoCharackterController : MonoBehaviour
     {
 
         MySpeedX = Input.GetAxis("Horizontal");
+
+        if (!Climbing)
+        {
+            rb.useGravity = true;
+            RunAnJump();
+        }
+        else
+        {
+            ClimbUpdate();
+        }
+
+
+    }
+
+    private void FixedUpdate()
+    {
+
+        rb.velocity = new Vector2(MySpeedX * Speed * Time.deltaTime, rb.velocity.y);
+
+        if (Climbing)
+        {
+            ClimbFixedUpdate();
+        }
+
+
+    }
+
+    public void RunAnJump()
+    {
 
         if (IsGroundedCheck() && Input.GetKeyDown(KeyCode.Space))
         {
@@ -59,16 +93,18 @@ public class TwoCharackterController : MonoBehaviour
         {
             isJumping = false;
         }
-
     }
 
-    private void FixedUpdate()
+    public void ClimbUpdate()
     {
-
-        rb.velocity = new Vector2(MySpeedX * Speed * Time.deltaTime, rb.velocity.y);
-
-
+        MySpeedY = Input.GetAxis("Horizontal");
+        rb.useGravity = false;
     }
+    public void ClimbFixedUpdate()
+    {
+        rb.velocity = new Vector2(rb.velocity.x, MySpeedY * Speed * 0.75f * Time.deltaTime);
+    }
+
 
     public void Jump()
     {
