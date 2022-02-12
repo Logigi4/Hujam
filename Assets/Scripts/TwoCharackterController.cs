@@ -5,6 +5,8 @@ using UnityEngine;
 public class TwoCharackterController : MonoBehaviour
 {
 
+    public Animator anim;
+
     public bool Climbing = false;
 
     [HideInInspector]
@@ -27,11 +29,17 @@ public class TwoCharackterController : MonoBehaviour
     private float JumpTimeCounter;
     public float JumpTime;
 
+    public float LadderSpeed;
+    public float LadderSpeedPy;
+
     bool isJumping;
+
+    float startX;
 
     void Start()
     {
         Climbing = false;
+        startX = transform.localScale.x;
     }
 
 
@@ -41,14 +49,50 @@ public class TwoCharackterController : MonoBehaviour
 
         MySpeedX = Input.GetAxis("Horizontal");
 
+
+
+        if (rb.velocity.x > 0.1 || rb.velocity.x < -0.1)
+        {
+            anim.SetBool("isRunning", true);
+        }
+        else if(rb.velocity.x <= 0.1 && rb.velocity.x >= -0.1)
+        {
+            anim.SetBool("isRunning", false);
+        }
+
+
+        if (MySpeedX < 0)
+        {
+            transform.localScale = new Vector3(-startX, transform.localScale.y, transform.localScale.z);
+        }
+        else if(MySpeedX > 0)
+        {
+            transform.localScale = new Vector3(startX, transform.localScale.y, transform.localScale.z);
+        }
+
+
+        anim.SetFloat("LadderSpeed", MySpeedY * LadderSpeed);
+        
+
         if (!Climbing)
         {
+            anim.SetBool("isClimbing", false);
             rb.useGravity = true;
             RunAnJump();
         }
         else
         {
+            anim.SetBool("isClimbing", true);
             ClimbUpdate();
+        }
+
+        if (IsGroundedCheck())
+        {
+            anim.SetBool("isJumping", false);
+        }
+        else
+        {
+            anim.SetBool("isJumping", true);
         }
 
 
@@ -74,6 +118,7 @@ public class TwoCharackterController : MonoBehaviour
         {
             Debug.Log("Jump Tuþuna basýldý");
             isJumping = true;
+            anim.SetBool("isJumping", true);
             JumpTimeCounter = JumpTime;
             Jump();
         }
@@ -102,7 +147,7 @@ public class TwoCharackterController : MonoBehaviour
     }
     public void ClimbFixedUpdate()
     {
-        rb.velocity = new Vector2(rb.velocity.x, MySpeedY * Speed * 0.75f * Time.deltaTime);
+        rb.velocity = new Vector2(rb.velocity.x, MySpeedY * Speed * LadderSpeedPy * Time.deltaTime);
     }
 
 
@@ -115,6 +160,7 @@ public class TwoCharackterController : MonoBehaviour
 
     private bool IsGroundedCheck()
     {
+
         bool isGrounded = Physics.CheckSphere(GroundCheck.position, groundDistance, groundLayerMask);
 
         return isGrounded;

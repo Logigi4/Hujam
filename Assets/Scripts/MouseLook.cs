@@ -92,7 +92,7 @@ public class MouseLook : MonoBehaviour
         {
             GameObject hitObject = hitInfo.transform.gameObject;
 
-            if (hitObject.CompareTag("Paper") || hitObject.CompareTag("Correct") || hitObject.CompareTag("Wrong") || hitObject.CompareTag("Fin"))
+            if (hitObject.CompareTag("Paper") || hitObject.CompareTag("Correct") || hitObject.CompareTag("Wrong") || hitObject.CompareTag("Fin") || hitObject.CompareTag("Wrong2"))
             {
                 testAnim.SetBool("Look", true);
             }
@@ -109,11 +109,30 @@ public class MouseLook : MonoBehaviour
             {              
                 hitObject.GetComponentInParent<QsScript>().WrongAnswer();
             }
-            else if(Input.GetMouseButtonDown(0) && hitObject.CompareTag("Fin") && gamman.AbleToWin)
+            else if(Input.GetMouseButtonDown(0) && hitObject.CompareTag("Wrong2"))
             {
-                Debug.Log("Winned");
+                hitObject.GetComponentInParent<QsScript>().WrongAnswerTwo();
+            }
+            else if(Input.GetMouseButtonDown(0) && hitObject.CompareTag("Fin"))
+            {
+                if (gamman.AbleToWin)
+                {
+                    Debug.Log(ScoreCounter.QuizzNumber);
+                    ScoreCounter.QuizzNumber += 1;
+                    Debug.Log(ScoreCounter.QuizzNumber);
+                    EndOfQuizz();
+                }
+                else
+                {
+                    EndOfQuizz();
+                }
             }
         }
+    }
+
+    public void EndOfQuizz()
+    {
+        Time.timeScale = 0;
     }
 
 
