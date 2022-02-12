@@ -11,6 +11,8 @@ public class MouseLook : MonoBehaviour
     [SerializeField] int normal = 60;
     [SerializeField] float Smooth = 5;
 
+    public float rayRange = 4;
+
     private bool isZoomed = false;
 
     public Transform ParentBody;
@@ -36,23 +38,12 @@ public class MouseLook : MonoBehaviour
     }
 
     void Update()
-    {
+    {  
 
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            Test = !Test;
-        }
-        
+          ZoomInOut();
+          MouseLooking();
 
-        if (!Test)
-        {
-            ZoomInOut();
-            MouseLooking();
-        }
-        else
-        {
-
-        }
+          CastRay();
 
     }
 
@@ -86,6 +77,24 @@ public class MouseLook : MonoBehaviour
         {
             cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, normal, Time.deltaTime * Smooth);
             mouseSens = StartMouseSens;
+        }
+    }
+
+    void CastRay()
+    {
+        RaycastHit hitInfo = new RaycastHit();
+        bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo, rayRange);
+        if (hit)
+        {
+            GameObject hitObject = hitInfo.transform.gameObject;
+            if (Input.GetMouseButtonDown(0) && hitObject.CompareTag("Correct"))
+            {
+                hitObject.GetComponentInParent<QsScript>().CorrectAnswer();
+            }
+            else if(Input.GetMouseButtonDown(0) && hitObject.CompareTag("Wrong"))
+            {              
+                hitObject.GetComponentInParent<QsScript>().WrongAnswer();
+            }
         }
     }
 
