@@ -5,4 +5,7 @@ using UnityEngine;
 public class ScoreCounter : MonoBehaviour
 {
     static public int QuizzNumber= 0;
+
+    static public bool[] Quizez;
+
 }

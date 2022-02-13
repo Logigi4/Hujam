@@ -13,6 +13,7 @@ TagManager:
   - Paper
   - Wrong2
   - Activator
+  - End
   layers:
   - Default
   - TransparentFX

@@ -5,6 +5,8 @@ using UnityEngine;
 public class MouseLook : MonoBehaviour
 {
 
+    public SceneMaster Sm;
+
     public Animator testAnim;
 
     public GameMan gamman;
@@ -132,7 +134,7 @@ public class MouseLook : MonoBehaviour
 
     public void EndOfQuizz()
     {
-        Time.timeScale = 0;
+        Sm.LoadNextScene();
     }
 
 

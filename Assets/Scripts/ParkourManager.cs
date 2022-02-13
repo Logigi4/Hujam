@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ParkourManager : MonoBehaviour
 {
 
     public float timeValue = 90;
-    public Text timeText;
+    public TextMeshProUGUI timeText;
 
     void Update()
     {
@@ -15,19 +16,23 @@ public class ParkourManager : MonoBehaviour
         if (timeValue > 0)
         {
             timeValue -= Time.deltaTime;
+            DisplayTime(Mathf.RoundToInt(timeValue));
         }
         else
         {
             timeValue = 0;
+            timeText.text ="Oops, You are a little late. But you still gotta finish tho.";
         }
 
-        DisplayTime(timeValue);
+        
+
+
 
     }
 
-    void DisplayTime(float TimeToDisplay)
+    void DisplayTime(int TimeToDisplay)
     {
-        timeText.text = TimeToDisplay.ToString();
+        timeText.text = TimeToDisplay.ToString() + " Seconds To Deadline";
     }
 
 
