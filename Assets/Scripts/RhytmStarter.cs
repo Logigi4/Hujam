@@ -126,9 +126,8 @@ public class RhytmStarter : MonoBehaviour
 
         if (CurrentScore >= DesiredScore)
         {
-            Debug.Log(ScoreCounter.QuizzNumber);
             ScoreCounter.QuizzNumber += 1;
-            Debug.Log(ScoreCounter.QuizzNumber);
+            ScoreCounter.Quizez[2] = true;
             EndOfQuizz();
         }
         else

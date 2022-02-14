@@ -25,7 +25,6 @@ public class MouseLook : MonoBehaviour
 
     public float mouseSens;
     public float SlowMouseSens;
-    public float StartMouseSens = 70f;
     public float MouseSensDec;
     float rotationX = 0f;
 
@@ -36,8 +35,8 @@ public class MouseLook : MonoBehaviour
 
         Test = false;
 
-        mouseSens = StartMouseSens;
-        SlowMouseSens = StartMouseSens * MouseSensDec;
+        mouseSens = Sensivition.Sens;
+        SlowMouseSens = Sensivition.Sens * MouseSensDec;
         
         Cursor.lockState = CursorLockMode.Locked;
 
@@ -82,7 +81,7 @@ public class MouseLook : MonoBehaviour
         else
         {
             cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, normal, Time.deltaTime * Smooth);
-            mouseSens = StartMouseSens;
+            mouseSens = Sensivition.Sens;
         }
     }
 
@@ -119,9 +118,8 @@ public class MouseLook : MonoBehaviour
             {
                 if (gamman.AbleToWin)
                 {
-                    Debug.Log(ScoreCounter.QuizzNumber);
                     ScoreCounter.QuizzNumber += 1;
-                    Debug.Log(ScoreCounter.QuizzNumber);
+                    ScoreCounter.Quizez[0] = true;
                     EndOfQuizz();
                 }
                 else

@@ -15,9 +15,8 @@ public class EndOfParkour : MonoBehaviour
         {
             if (pk.timeValue > 0)
             {
-                Debug.Log(ScoreCounter.QuizzNumber);
                 ScoreCounter.QuizzNumber += 1;
-                Debug.Log(ScoreCounter.QuizzNumber);
+                ScoreCounter.Quizez[1] = true;
                 EndOfQuizz();
             }
             else
