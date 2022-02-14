@@ -5416,7 +5416,6 @@ MonoBehaviour:
   ParentBody: {fileID: 1160745881}
   mouseSens: 70
   SlowMouseSens: 0
-  StartMouseSens: 70
   MouseSensDec: 0.2
   Test: 0
 --- !u!82 &1187809855
@@ -5428,7 +5427,7 @@ AudioSource:
   m_GameObject: {fileID: 1187809848}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 2925985c4cbb28d43ab114d35f4c1422, type: 2}
   m_audioClip: {fileID: 8300000, guid: 5e419a53d9453e84f92a2ecc663f1c20, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
