@@ -2850,7 +2850,7 @@ MonoBehaviour:
   multiplierThresholds: 040000000800000010000000
   scoreText: {fileID: 699245569}
   MultiText: {fileID: 1651129799}
-  DesiredScore: 0
+  DesiredScore: 5000
   beatDropSecond: 8
   SongFinish: 92
   Sm: {fileID: 321382180}
@@ -7536,6 +7536,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -49.310757
       objectReference: {fileID: 0}
+    - target: {fileID: 1630794972795428178, guid: dbe1c970e861223419bdbe0eb49f5557, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d98cfdbfc8fcb0c438832b4da7023d7e, type: 2}
     - target: {fileID: 1767701600721412172, guid: dbe1c970e861223419bdbe0eb49f5557, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -38.21761
@@ -12854,7 +12858,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Combo: 1X'
+  m_text: "Combo: \n1X"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
