@@ -79,7 +79,7 @@ public class RhytmStarter : MonoBehaviour
             }
         }
 
-        MultiText.text = CurrentMultiplier + "X";
+        MultiText.text = "Combo: " + CurrentMultiplier + "X";
 
        // CurrentScore += ScorePerNote * CurrentMultiplier;
        scoreText.text = "Score: " + CurrentScore;
@@ -108,7 +108,7 @@ public class RhytmStarter : MonoBehaviour
         Debug.Log("Miss");
         CurrentMultiplier = 1;
         MultiplierTracker = 0;
-        MultiText.text = CurrentMultiplier + "X";
+        MultiText.text = "Combo: " + CurrentMultiplier + "X";
     }
 
 

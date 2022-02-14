@@ -4750,8 +4750,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 136.54541, y: -51.68994}
-  m_SizeDelta: {x: 273.0906, y: 103.38}
+  m_AnchoredPosition: {x: 207.7268, y: -101.79773}
+  m_SizeDelta: {x: 415.4535, y: 203.5956}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &699245569
 MonoBehaviour:
@@ -9388,8 +9388,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press Any Button
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9143eb6d4bdd4b847b2fc51b4a733edb, type: 2}
+  m_sharedMaterial: {fileID: -2545921113338443830, guid: 9143eb6d4bdd4b847b2fc51b4a733edb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9449,7 +9449,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -42.53296, y: 0, z: -40.583252, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -12829,10 +12829,10 @@ RectTransform:
   m_Father: {fileID: 463980467}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 61.364014, y: -115.64801}
-  m_SizeDelta: {x: 122.7281, y: 53.676}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -195.08441, y: -110.61194}
+  m_SizeDelta: {x: 390.169, y: 221.2237}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1651129799
 MonoBehaviour:
@@ -12854,7 +12854,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1X
+  m_text: 'Combo: 1X'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
