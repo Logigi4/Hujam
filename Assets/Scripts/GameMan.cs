@@ -17,7 +17,6 @@ public class GameMan : MonoBehaviour
     private void Update()
     {
 
-        Debug.Log(TrueQs[0]);
 
         if (TrueQs[0] && TrueQs[1] && TrueQs[2] && TrueQs[3] && TrueQs[4])
         {
