@@ -1,20 +1,11 @@
 fileFormatVersion: 2
-guid: e311ae9da5f9ef241a74eb8a3d0cb4bd
+guid: 86c3e799744dacb4481f6caa1c7b829d
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
-      74: 4364627682949446743
-    second: Armature.003|c
-  - first:
-      74: -7340656024253146220
-    second: Armature.003|o
-  - first:
-      74: -9100055065257742987
-    second: Armature.003|p
-  - first:
-      74: 2869837047255115555
-    second: Armature.003|Teacher
+      74: -203655887218126122
+    second: mixamo.com
   externalObjects: {}
   materials:
     materialImportMode: 2
