@@ -15,13 +15,11 @@ public class EndOfParkour : MonoBehaviour
         {
             if (pk.timeValue > 0)
             {
-                ScoreCounter.QuizzNumber += 1;
-                ScoreCounter.Quizez[1] = true;
-                EndOfQuizz();
+                StartCoroutine(End());
             }
             else
             {
-                EndOfQuizz();
+                StartCoroutine(badEnd());
             }
             
         }
@@ -30,6 +28,22 @@ public class EndOfParkour : MonoBehaviour
     public void EndOfQuizz()
     {
         Sm.LoadNextScene();
+    }
+
+    public IEnumerator End()
+    {
+        yield return new WaitForSeconds(2);
+        ScoreCounter.QuizzNumber += 1;
+        ScoreCounter.Quizez[1] = true;
+        EndOfQuizz();
+
+    }
+
+    public IEnumerator badEnd()
+    {
+        yield return new WaitForSeconds(2);
+        EndOfQuizz();
+
     }
 
 
