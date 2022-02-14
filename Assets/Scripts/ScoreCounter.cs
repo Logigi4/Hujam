@@ -6,6 +6,6 @@ public class ScoreCounter : MonoBehaviour
 {
     static public int QuizzNumber= 0;
 
-    static public bool[] Quizez;
+    static public bool[] Quizez = new bool[] {false,false,false};
 
 }

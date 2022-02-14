@@ -5,6 +5,8 @@ using UnityEngine;
 public class MouseLook : MonoBehaviour
 {
 
+    public Animator Esc;
+
     public SceneMaster Sm;
 
     public Animator testAnim;
@@ -43,7 +45,12 @@ public class MouseLook : MonoBehaviour
     }
 
     void Update()
-    {  
+    {
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Esc.SetBool("Op",!Esc.GetBool("Op"));
+        }
 
           ZoomInOut();
           MouseLooking();
