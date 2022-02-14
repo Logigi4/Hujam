@@ -6,6 +6,8 @@ using TMPro;
 public class RhytmStarter : MonoBehaviour
 {
 
+    public Animator DjAnim;
+
     public GameObject PressText;
 
     public AudioSource Music;
@@ -29,6 +31,12 @@ public class RhytmStarter : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI MultiText;
 
+    public float DesiredScore;
+    public float beatDropSecond;
+    public float SongFinish;
+
+    public SceneMaster Sm;
+
 
     void Start()
     {
@@ -50,6 +58,7 @@ public class RhytmStarter : MonoBehaviour
                 theBs.hasStarted = true;
 
                 Music.Play();
+                StartCoroutine(WaitForBum());
 
             }
         }
@@ -100,6 +109,38 @@ public class RhytmStarter : MonoBehaviour
         CurrentMultiplier = 1;
         MultiplierTracker = 0;
         MultiText.text = CurrentMultiplier + "X";
+    }
+
+
+    public IEnumerator WaitForBum()
+    {
+        yield return new WaitForSeconds(beatDropSecond);
+
+        DjAnim.SetTrigger("Dj");
+
+    }
+
+    public IEnumerator FinishGame()
+    {
+        yield return new WaitForSeconds(SongFinish);
+
+        if (CurrentScore >= DesiredScore)
+        {
+            Debug.Log(ScoreCounter.QuizzNumber);
+            ScoreCounter.QuizzNumber += 1;
+            Debug.Log(ScoreCounter.QuizzNumber);
+            EndOfQuizz();
+        }
+        else
+        {
+            EndOfQuizz();
+        }
+        
+    }
+
+    public void EndOfQuizz()
+    {
+        Sm.LoadNextScene();
     }
 
 
